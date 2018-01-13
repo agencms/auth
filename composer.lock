@@ -1,0 +1,69 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "0411eff2725736f757a8ffc814f45776",
+    "packages": [
+        {
+            "name": "silvanite/brandenburg",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Silvanite/brandenburg.git",
+                "reference": "929e910062e5ccfdee49e64775f05da354d9e889"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Silvanite/brandenburg/zipball/929e910062e5ccfdee49e64775f05da354d9e889",
+                "reference": "929e910062e5ccfdee49e64775f05da354d9e889",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.5",
+                "phpunit/phpunit": "^6.4",
+                "squizlabs/php_codesniffer": "^3.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Silvanite\\Brandenburg\\Providers\\BrandenburgServiceProvider"
+                    ],
+                    "aliases": {
+                        "BrandenburgPolicy": "Silvanite\\Brandenburg\\Facades\\PolicyFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Silvanite\\Brandenburg\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Mark (m2de)",
+                    "email": "marco@silvanite.com"
+                }
+            ],
+            "description": "Laravel Authentication Package",
+            "time": "2017-11-27T20:40:31+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

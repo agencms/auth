@@ -1,0 +1,26 @@
+{
+    "name": "silvanite/agencms-auth",
+    "description": "Agencms Authentication Package",
+    "authors": [
+        {
+            "name": "Marco Mark",
+            "email": "marco@silvanite.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Silvanite\\AgencmsAuth\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Silvanite\\AgencmsAuth\\Providers\\AgencmsAuthServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "silvanite/brandenburg": "^1.0"
+    }
+}
