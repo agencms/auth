@@ -20,8 +20,8 @@ use Silvanite\Agencms\Route as AcmsRoute;
 |
 */
 
-Route::prefix('brandenburg')
-     ->namespace('Silvanite\Brandenburg\Controllers')
+Route::prefix('agencms-auth')
+     ->namespace('Silvanite\AgencmsAuth\Controllers')
      ->middleware(['api', 'cors'])
      ->group(function() {
         Route::resource('permissions', 'PermissionController');

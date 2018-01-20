@@ -37,7 +37,7 @@ class AgencmsHandler
         if (!Gate::allows('users_read')) return;
 
         AgencmsConfig::registerRoute(
-            Route::init('users', 'Users', '/brandenburg/users')
+            Route::init('users', 'Users', '/agencms-auth/users')
                 ->icon('person')
                 ->addGroup(
                     Group::large('Details')->addField(
@@ -66,7 +66,7 @@ class AgencmsHandler
         if (!Gate::allows('roles_read')) return;
 
         AgencmsConfig::registerRoute(
-            Route::init('roles', 'Roles', '/brandenburg/roles')
+            Route::init('roles', 'Roles', '/agencms-auth/roles')
                 ->icon('supervisor_account')
                 ->addGroup(Group::full('Details')->addField(
                     Field::number('id', 'Id')->readonly()->list(),
