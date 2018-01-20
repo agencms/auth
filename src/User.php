@@ -6,16 +6,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use Silvanite\Brandenburg\Traits\HasRoles;
-use Silvanite\Agencms\Traits\HasImages;
-
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 use App\User as BaseUser;
 
-class User extends BaseUser implements HasMedia
+class User extends BaseUser
 {
-    use Notifiable, HasRoles, HasImages, HasMediaTrait;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +19,7 @@ class User extends BaseUser implements HasMedia
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'active'
+        'name', 'email', 'password', 'active', 'avatar'
     ];
 
     /**
@@ -43,11 +39,6 @@ class User extends BaseUser implements HasMedia
     protected $appends = [
         'roleids'
     ];
-
-    protected $images = [
-        'avatar'
-    ];
-
 
     protected function getArrayableAppends()
     {
