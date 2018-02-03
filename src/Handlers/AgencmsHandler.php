@@ -50,7 +50,7 @@ class AgencmsHandler
                     ),
                     Group::small('Extra')->addField(
                         Field::boolean('active', 'Active')->list(),
-                        Field::image('avatar', 'Profile Picture')->ratio(600, 600, true)
+                        Field::image('avatar', 'Profile Picture')->ratio(600, 600, $resize = true)
                     )   
                 )
         );
