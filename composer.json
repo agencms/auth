@@ -1,5 +1,5 @@
 {
-    "name": "silvanite/agencms-auth",
+    "name": "silvanite/agencmsauth",
     "description": "Agencms Authentication Package",
     "authors": [
         {
@@ -7,7 +7,6 @@
             "email": "marco@silvanite.com"
         }
     ],
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Silvanite\\AgencmsAuth\\": "src/"
