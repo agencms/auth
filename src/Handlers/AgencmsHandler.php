@@ -2,15 +2,15 @@
 
 namespace Silvanite\AgencmsAuth\Handlers;
 
-use Illuminate\Support\Facades\Auth;
-use Gate;
-use Silvanite\Agencms\Facades\ConfigFacade as AgencmsConfig;
 use Silvanite\Agencms\Route;
 use Silvanite\Agencms\Field;
 use Silvanite\Agencms\Group;
 use Silvanite\Agencms\Option;
-use Silvanite\Agencms\Relationship;
 use Silvanite\Brandenburg\Policy;
+use Silvanite\Agencms\Relationship;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Silvanite\Agencms\Facades\Agencms;
 
 class AgencmsHandler
 {
@@ -36,8 +36,8 @@ class AgencmsHandler
     {
         if (!Gate::allows('users_read')) return;
 
-        AgencmsConfig::registerRoute(
-            Route::init('users', 'Users', '/agencms-auth/users')
+        Agencms::registerRoute(
+            Route::init('users', ['Users' => 'Manage Users'], '/agencms-auth/users')
                 ->icon('person')
                 ->addGroup(
                     Group::large('Details')->addField(
@@ -65,8 +65,8 @@ class AgencmsHandler
     {
         if (!Gate::allows('roles_read')) return;
 
-        AgencmsConfig::registerRoute(
-            Route::init('roles', 'Roles', '/agencms-auth/roles')
+        Agencms::registerRoute(
+            Route::init('roles', ['Users' => 'Manage Roles'], '/agencms-auth/roles')
                 ->icon('supervisor_account')
                 ->addGroup(Group::full('Details')->addField(
                     Field::number('id', 'Id')->readonly()->list(),
