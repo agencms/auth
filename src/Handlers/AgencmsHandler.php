@@ -21,7 +21,9 @@ class AgencmsHandler
      */
     public static function registerAdmin()
     {
-        if (!Gate::allows('admin_access')) return;
+        if (!Gate::allows('admin_access')) {
+            return;
+        }
 
         self::registerUsersAdmin();
         self::registerRolesAdmin();
@@ -34,7 +36,9 @@ class AgencmsHandler
      */
     private static function registerUsersAdmin()
     {
-        if (!Gate::allows('users_read')) return;
+        if (!Gate::allows('users_read')) {
+            return;
+        }
 
         Agencms::registerRoute(
             Route::init('users', ['Users' => 'Manage Users'], '/agencms-auth/users')
@@ -51,7 +55,7 @@ class AgencmsHandler
                     Group::small('Extra')->addField(
                         Field::boolean('active', 'Active')->list(),
                         Field::image('avatar', 'Profile Picture')->ratio(600, 600, $resize = true)
-                    )   
+                    )
                 )
         );
     }
@@ -63,7 +67,9 @@ class AgencmsHandler
      */
     private static function registerRolesAdmin()
     {
-        if (!Gate::allows('roles_read')) return;
+        if (!Gate::allows('roles_read')) {
+            return;
+        }
 
         Agencms::registerRoute(
             Route::init('roles', ['Users' => 'Manage Roles'], '/agencms-auth/roles')
