@@ -10,6 +10,7 @@ use Illuminate\Contracts\Http\Kernel;
 use Silvanite\Agencms\Facades\Agencms;
 use Illuminate\Support\ServiceProvider;
 use Silvanite\AgencmsAuth\Middleware\AgencmsConfig;
+use Silvanite\AgencmsAuth\Commands\MakeUser;
 
 class AgencmsAuthServiceProvider extends ServiceProvider
 {
@@ -24,8 +25,18 @@ class AgencmsAuthServiceProvider extends ServiceProvider
 
         $this->registerApiRoutes();
         $this->registerPolicies();
+        $this->bootCommands();
 
         $this->registerAgencms($router);
+    }
+
+    private function bootCommands()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MakeUser::class,
+            ]);
+        }
     }
 
     /**
