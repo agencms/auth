@@ -2,12 +2,10 @@
 
 namespace Silvanite\AgencmsAuth;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-
-use Silvanite\Brandenburg\Traits\HasRoles;
-
 use App\User as BaseUser;
+use Illuminate\Notifications\Notifiable;
+use Silvanite\Brandenburg\Traits\HasRoles;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends BaseUser
 {
@@ -42,11 +40,9 @@ class User extends BaseUser
 
     protected function getArrayableAppends()
     {
-        $this->appends = array_unique(array_merge(
-            $this->appends, [
-                'roleids'
-            ]
-        ));
+        $this->appends = array_unique(
+            array_merge($this->appends, ['roleids'])
+        );
 
         return parent::getArrayableAppends();
     }
@@ -58,11 +54,9 @@ class User extends BaseUser
      */
     public function getFillable()
     {
-        $this->fillable = array_unique(array_merge(
-            $this->fillable, [
-                'api_token'
-            ]
-        ));
+        $this->fillable = array_unique(
+            array_merge($this->fillable, ['api_token'])
+        );
 
         return parent::getFillable();
     }
@@ -74,11 +68,9 @@ class User extends BaseUser
      */
     public function getHidden()
     {
-        $this->hidden = array_unique(array_merge(
-            $this->hidden, [
-                'api_token'
-            ]
-        ));
+        $this->hidden = array_unique(
+            array_merge($this->hidden, ['api_token'])
+        );
 
         return parent::getHidden();
     }
