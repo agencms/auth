@@ -2,18 +2,14 @@
 
 namespace Silvanite\AgencmsAuth\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Gate;
-use Route;
-use Silvanite\Agencms\Facades\ConfigFacade as Agencms;
-
-use Silvanite\Brandenburg\Policy;
-use Silvanite\Brandenburg\Permission;
-
-use Silvanite\AgencmsAuth\Middleware\AgencmsConfig;
-
 use Illuminate\Routing\Router;
+use Silvanite\Brandenburg\Policy;
+use Illuminate\Support\Facades\Gate;
+use Silvanite\Brandenburg\Permission;
 use Illuminate\Contracts\Http\Kernel;
+use Silvanite\Agencms\Facades\Agencms;
+use Illuminate\Support\ServiceProvider;
+use Silvanite\AgencmsAuth\Middleware\AgencmsConfig;
 
 class AgencmsAuthServiceProvider extends ServiceProvider
 {
@@ -73,7 +69,7 @@ class AgencmsAuthServiceProvider extends ServiceProvider
      */
     private function registerPolicies($container = "BrandenburgPolicy")
     {
-        $this->app->bind($container, function(){
+        $this->app->bind($container, function () {
             return new Policy;
         });
     }
@@ -86,21 +82,23 @@ class AgencmsAuthServiceProvider extends ServiceProvider
     private function registerPermissions()
     {
         collect([
-            'users_read', 
-            'users_update', 
-            'users_create', 
-            'users_delete', 
-            'roles_read', 
-            'roles_update', 
-            'roles_create', 
-            'roles_delete', 
-            'permissions_read', 
-            'permissions_update', 
-            'permissions_create', 
-            'permissions_delete', 
-        ])->map(function($permission) {
+            'users_read',
+            'users_update',
+            'users_create',
+            'users_delete',
+            'roles_read',
+            'roles_update',
+            'roles_create',
+            'roles_delete',
+            'permissions_read',
+            'permissions_update',
+            'permissions_create',
+            'permissions_delete',
+        ])->map(function ($permission) {
             Gate::define($permission, function ($user) use ($permission) {
-                if ($this->nobodyHasAccess($permission)) return true;
+                if ($this->nobodyHasAccess($permission)) {
+                    return true;
+                }
 
                 return $user->hasRoleWithPermission($permission);
             });
@@ -116,7 +114,9 @@ class AgencmsAuthServiceProvider extends ServiceProvider
      */
     private function nobodyHasAccess($permission)
     {
-        if (!$requestedPermission = Permission::find($permission)) return true;
+        if (!$requestedPermission = Permission::find($permission)) {
+            return true;
+        }
 
         return !$requestedPermission->hasUsers();
     }
