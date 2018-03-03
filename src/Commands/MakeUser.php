@@ -41,7 +41,7 @@ class MakeUser extends Command
         if (!$user = User::create([
             'name' => $this->ask('Full name'),
             'email' => $this->ask('Email address'),
-            'password' => $this->secret('Password'),
+            'password' => bcrypt($this->secret('Password')),
             'active' => true,
             'api_token' => bcrypt(str_random()),
         ])) {
