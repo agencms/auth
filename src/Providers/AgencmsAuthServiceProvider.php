@@ -101,10 +101,6 @@ class AgencmsAuthServiceProvider extends ServiceProvider
             'roles_update',
             'roles_create',
             'roles_delete',
-            'permissions_read',
-            'permissions_update',
-            'permissions_create',
-            'permissions_delete',
         ])->map(function ($permission) {
             Gate::define($permission, function ($user) use ($permission) {
                 if ($this->nobodyHasAccess($permission)) {
