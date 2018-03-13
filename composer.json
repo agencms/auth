@@ -1,6 +1,7 @@
 {
     "name": "agencms/auth",
     "description": "Agencms Authentication Package",
+    "license": "GPL-3.0",
     "authors": [
         {
             "name": "Marco Mark",
