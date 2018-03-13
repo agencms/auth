@@ -1,9 +1,9 @@
 <?php
 
-namespace Silvanite\AgencmsAuth\Middleware;
+namespace Agencms\Auth\Middleware;
 
 use Closure;
-use Silvanite\AgencmsAuth\Handlers\AgencmsHandler;
+use Agencms\Auth\Handlers\AgencmsHandler;
 
 class AgencmsConfig
 {

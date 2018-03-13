@@ -1,11 +1,10 @@
 <?php
 
-namespace Silvanite\AgencmsAuth;
+namespace Agencms\Auth;
 
 use App\User as BaseUser;
 use Illuminate\Notifications\Notifiable;
 use Silvanite\Brandenburg\Traits\HasRoles;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends BaseUser
 {

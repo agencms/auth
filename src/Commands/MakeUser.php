@@ -1,8 +1,8 @@
 <?php
 
-namespace Silvanite\AgencmsAuth\Commands;
+namespace Agencms\Auth\Commands;
 
-use Silvanite\AgencmsAuth\User;
+use Agencms\Auth\User;
 use Illuminate\Console\Command;
 
 class MakeUser extends Command

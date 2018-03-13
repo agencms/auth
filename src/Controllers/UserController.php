@@ -1,8 +1,8 @@
 <?php
 
-namespace Silvanite\AgencmsAuth\Controllers;
+namespace Agencms\Auth\Controllers;
 
-use Silvanite\AgencmsAuth\User;
+use Agencms\Auth\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -42,10 +42,13 @@ class UserController extends Controller
 
         $user->save();
 
-        if (is_numeric($roles = $request->roleids)) $roles = [$roles];
+        if (is_numeric($roles = $request->roleids)) {
+            $roles = [$roles];
+        }
 
-        if (is_array($roles)) 
+        if (is_array($roles)) {
             $user->setRolesById($roles);
+        }
 
         return 200;
     }
@@ -74,10 +77,13 @@ class UserController extends Controller
         
         $user->update($request->all());
         
-        if (is_numeric($roles = $request->roleids)) $roles = [$roles];
+        if (is_numeric($roles = $request->roleids)) {
+            $roles = [$roles];
+        }
 
-        if (is_array($roles)) 
+        if (is_array($roles)) {
             $user->setRolesById($roles);
+        }
 
         return 200;
     }
