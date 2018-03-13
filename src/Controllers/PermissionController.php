@@ -1,6 +1,6 @@
 <?php
 
-namespace Silvanite\AgencmsAuth\Controllers;
+namespace Agencms\Auth\Controllers;
 
 use Silvanite\Brandenburg\Permission;
 
@@ -23,7 +23,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return Permission::get()->map(function($permission) {
+        return Permission::get()->map(function ($permission) {
             return $permission->permission_slug;
         });
     }

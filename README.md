@@ -4,7 +4,7 @@ Agencms Authentication Package
 
 ## Installation
 
-`composer require silvanite/agencms-auth`
+`composer require agencms/auth`
 
 ## Usage
 

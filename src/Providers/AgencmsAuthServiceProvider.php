@@ -1,16 +1,16 @@
 <?php
 
-namespace Silvanite\AgencmsAuth\Providers;
+namespace Agencms\Auth\Providers;
 
 use Illuminate\Routing\Router;
 use Silvanite\Brandenburg\Policy;
+use Agencms\Core\Facades\Agencms;
+use Agencms\Auth\Commands\MakeUser;
 use Illuminate\Support\Facades\Gate;
 use Silvanite\Brandenburg\Permission;
 use Illuminate\Contracts\Http\Kernel;
-use Silvanite\Agencms\Facades\Agencms;
 use Illuminate\Support\ServiceProvider;
-use Silvanite\AgencmsAuth\Middleware\AgencmsConfig;
-use Silvanite\AgencmsAuth\Commands\MakeUser;
+use Agencms\Auth\Middleware\AgencmsConfig;
 
 class AgencmsAuthServiceProvider extends ServiceProvider
 {

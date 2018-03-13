@@ -1,12 +1,10 @@
 <?php
 
-namespace Silvanite\AgencmsAuth\Controllers;
+namespace Agencms\Auth\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-
-use App\User;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {

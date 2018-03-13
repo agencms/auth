@@ -1,9 +1,9 @@
 <?php
 
-namespace Silvanite\AgencmsAuth\Controllers;
+namespace Agencms\Auth\Controllers;
 
-use Silvanite\Brandenburg\Role;
 use Illuminate\Http\Request;
+use Silvanite\Brandenburg\Role;
 
 class RoleController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Silvanite\AgencmsAuth\Controllers;
+namespace Agencms\Auth\Controllers;
 
 use Silvanite\Brandenburg\Policy;
 
