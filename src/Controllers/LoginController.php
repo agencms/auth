@@ -13,7 +13,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         if (Auth::guard('web')->attempt($request->only(['email', 'password']))) {
-            return Auth::user()->api_token;
+            return Auth::guard('web')->user()->api_token;
         }
 
         return response()->json(['error' => 'Authorization failed.'], 401);
