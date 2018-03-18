@@ -2,8 +2,8 @@
 
 namespace Agencms\Auth\Controllers;
 
-use Illuminate\Http\Request;
 use Silvanite\Brandenburg\Role;
+use Agencms\Auth\Requests\RoleRequest;
 
 class RoleController extends Controller
 {
@@ -33,7 +33,7 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
         $role = Role::create($request->all());
 
@@ -60,7 +60,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, $id)
     {
         $role = Role::findOrFail($id);
 

@@ -3,7 +3,7 @@
 namespace Agencms\Auth\Controllers;
 
 use Agencms\Auth\User;
-use Illuminate\Http\Request;
+use Agencms\Auth\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -33,7 +33,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $user = User::make($request->all());
 
@@ -71,7 +71,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         $user = User::findOrFail($id);
         
