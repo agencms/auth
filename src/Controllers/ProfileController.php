@@ -25,7 +25,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return Auth::user();
+        return User::find(Auth::user()->id);
     }
 
     /**
@@ -36,7 +36,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Auth::user()->update($request->all());
+        $user = User::find(Auth::user()->id)->update($request->all());
 
         return 200;
     }
