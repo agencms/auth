@@ -26,6 +26,7 @@ class AgencmsHandler
         }
 
         self::registerUsersAdmin();
+        self::registerUserProfile();
         self::registerRolesAdmin();
     }
 
@@ -54,6 +55,29 @@ class AgencmsHandler
                     ),
                     Group::small('Extra')->addField(
                         Field::boolean('active', 'Active')->list(),
+                        Field::image('avatar', 'Profile Picture')->ratio(600, 600, $resize = true)
+                    )
+                )
+        );
+    }
+
+    /**
+     * Register the Agencms endpoints for the User's account profile
+     *
+     * @return void
+     */
+    private static function registerUserProfile()
+    {
+        Agencms::registerRoute(
+            Route::initSingle('profile', '', '/agencms-auth/profile')
+                ->icon('person')
+                ->addGroup(
+                    Group::large('Details')->addField(
+                        Field::number('id', 'Id')->readonly()->list(),
+                        Field::string('name', 'Name')->medium()->required()->list(),
+                        Field::string('email', 'Email')->medium()->readonly()->list()
+                    ),
+                    Group::small('Extra')->addField(
                         Field::image('avatar', 'Profile Picture')->ratio(600, 600, $resize = true)
                     )
                 )

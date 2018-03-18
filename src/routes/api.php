@@ -13,6 +13,7 @@ Route::prefix('agencms-auth')
         Route::resource('permissions', 'PermissionController');
         Route::resource('roles', 'RoleController');
         Route::resource('users', 'UserController');
+        Route::resource('profile', 'ProfileController');
         Route::resource('policies', 'PolicyController');
         Route::post('login', 'LoginController@login');
         Route::get('authorize', [
