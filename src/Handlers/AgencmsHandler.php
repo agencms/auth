@@ -100,8 +100,8 @@ class AgencmsHandler
                 ->icon('supervisor_account')
                 ->addGroup(Group::full('Details')->addField(
                     Field::number('id', 'Id')->readonly()->list(),
-                    Field::string('name', 'Name')->medium()->required()->list(),
-                    Field::string('slug', 'Slug')->medium()->required()->list(),
+                    Field::string('name', 'Name')->link('slug')->medium()->required()->list(),
+                    Field::string('slug', 'Slug')->slug()->medium()->required()->list(),
                     Field::select('permissions', 'Permissions')->addOptions(
                         Policy::all()
                     )->medium()->multiple()->dropdown()
