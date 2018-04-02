@@ -5,6 +5,7 @@ namespace Agencms\Auth;
 use App\User as BaseUser;
 use Illuminate\Notifications\Notifiable;
 use Silvanite\Brandenburg\Traits\HasRoles;
+use Agencms\Auth\Notifications\SetPassword as SetPasswordNotification;
 
 class User extends BaseUser
 {
@@ -82,5 +83,17 @@ class User extends BaseUser
     public function getRoleidsAttribute()
     {
         return $this->roles()->pluck('id');
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @param  array  $request
+     * @return void
+     */
+    public function sendPasswordNotification($token, $request)
+    {
+        $this->notify(new SetPasswordNotification($token, $request->tenant, $request->site));
     }
 }
