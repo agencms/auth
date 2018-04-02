@@ -45,6 +45,8 @@ class UserRequest extends FormRequest
             'avatar' => 'nullable|string',
             'active' => 'nullable|boolean',
             'roles' => 'nullable|array',
+            'tenant' => 'required|string',
+            'site' => 'required|string',
         ];
     }
 }
