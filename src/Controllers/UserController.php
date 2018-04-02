@@ -4,9 +4,12 @@ namespace Agencms\Auth\Controllers;
 
 use Agencms\Auth\User;
 use Agencms\Auth\Requests\UserRequest;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class UserController extends Controller
 {
+    use SendsPasswordResetEmails;
+
     /**
      * Instantiate a new controller instance.
      *
@@ -50,7 +53,13 @@ class UserController extends Controller
             $user->setRolesById($roles);
         }
 
-        return 200;
+        /**
+         * Next, let's send a password reset instructions email to the newly created user
+         * to enable them to set a password and login to use the Application.
+         */
+        $user->sendPasswordNotification($this->broker()->createToken($user), $request);
+
+        return response()->json([], 200);
     }
 
     /**
@@ -74,9 +83,9 @@ class UserController extends Controller
     public function update(UserRequest $request, $id)
     {
         $user = User::findOrFail($id);
-        
+
         $user->update($request->all());
-        
+
         if (is_numeric($roles = $request->roleids)) {
             $roles = [$roles];
         }
