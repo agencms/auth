@@ -23,6 +23,7 @@ Route::prefix('agencms-auth')
     ->group(function () {
         Route::post('login', 'LoginController@login');
         Route::post('password/reset', 'PasswordController@reset')->name('password.reset');
+        Route::post('password/request', 'PasswordController@request')->name('password.request');
         Route::get('authorize', [
             'as' => 'login',
             'uses' => 'LoginController@required'

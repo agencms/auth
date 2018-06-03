@@ -2,6 +2,7 @@
 
 namespace Agencms\Auth\Controllers;
 
+use Agencms\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
@@ -10,6 +11,20 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 class PasswordController extends Controller
 {
     use ResetsPasswords;
+
+    /**
+     * Send an email to the registered email address with a reset password link
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     */
+    public function request(Request $request)
+    {
+        $user = User::whereEmail($request->email)->firstOrFail();
+        $user->sendResetPasswordNotification($this->broker()->createToken($user), $request);
+
+        return response()->json('Password request successful', 200);
+    }
 
     /**
      * Reset the given user's password.
